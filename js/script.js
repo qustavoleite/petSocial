@@ -1,35 +1,28 @@
-// function menuShow() {
-//   let menuMobile = document.querySelector('.mobile-menu')
-//   if (menuMobile.classList.contains('open')) {
-//     menuMobile.classList.remove('open')
-//     document.querySelector('.icon').src = './assets/hamburguer.svg'
-//   } else {
-//     menuMobile.classList.add('open')
-//     document.querySelector('.icon').src = './assets/x.svg'
-//   }
-// }
-
-// Sua função menuShow existente
+//menu
 function menuShow() {
-  let menuMobile = document.querySelector('.mobile-menu');
+  let menuMobile = document.querySelector('.mobile-menu')
   if (menuMobile.classList.contains('open')) {
-    menuMobile.classList.remove('open');
-    document.querySelector('.icon').src = './assets/hamburguer.svg';
+    menuMobile.classList.remove('open')
+    document.querySelector('.icon').src = './assets/hamburguer.svg'
   } else {
-    menuMobile.classList.add('open');
-    document.querySelector('.icon').src = './assets/x.svg';
+    menuMobile.classList.add('open')
+    document.querySelector('.icon').src = './assets/x.svg'
   }
 }
 
-// Adicionando evento de clique para fechar o menu
-document.querySelectorAll('.menu-item a').forEach(item => {
-  item.addEventListener('click', () => {
-    // Fecha o menu
-    menuShow();
-  });
-});
+function closeMenu() {
+  let menuMobile = document.querySelector('.mobile-menu')
+  if (menuMobile.classList.contains('open')) {
+    menuMobile.classList.remove('open')
+    document.querySelector('.icon').src = './assets/hamburguer.svg'
+  }
+}
 
+document.querySelectorAll('.mobile-menu a').forEach((item) => {
+  item.addEventListener('click', closeMenu)
+})
 
+//slide
 const images = document.querySelectorAll('.carousel-images img')
 let currentIndex = 0
 
@@ -41,4 +34,31 @@ function showNextImage() {
 
 setInterval(showNextImage, 3000)
 
+//animation AOS
+AOS.init({
+  duration: 800,
+  once: true,
+})
 
+//mensagem whatsapp
+function sendToWhatsApp() {
+  var name = document.getElementById('name').value
+  var email = document.getElementById('email').value
+  var message = document.getElementById('message').value
+
+  var phoneNumber = '5588998378542'
+
+  var text = `Olá, meu nome é ${name}, meu e-mail é ${email}. ${message}`
+
+  var whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    text
+  )}`
+
+  document.getElementById('name').value = ''
+  document.getElementById('email').value = ''
+  document.getElementById('message').value = ''
+
+  window.open(whatsappURL, '_blank')
+
+  return false
+}

@@ -46,6 +46,11 @@ body {
     font-weight: 600;
 }
 
+.box-find a {
+    margin-top: 1rem;
+    text-decoration: underline;
+}
+
 @media (max-width:300px) {
     .box-find h3 {
         font-size: 2.5rem;

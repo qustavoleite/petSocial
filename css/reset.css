@@ -32,7 +32,7 @@
     width: 100%;
     max-width: 124rem;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 1.5rem;
 }
 
 img {
@@ -59,6 +59,7 @@ h3 {
 p {
     font-size: 1.8rem;
     line-height: 100%;
+    font-family: 'Inter', sans-serif;
 }
 
 img {
@@ -67,7 +68,6 @@ img {
 }
 
 .btn-primary {
-    /* text-align: center; */
     font-family: 'Sora', sans-serif;
     background-color: var(--purple-300);
     color: var(--white);
